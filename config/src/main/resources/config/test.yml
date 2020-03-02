@@ -1,0 +1,23 @@
+---
+spring:
+  profiles: local-dev
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    registerWithEureka: true
+    fetchRegistry: true
+    enabled: true
+
+---
+spring:
+  profiles: docker
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka
+    registerWithEureka: true
+    fetchRegistry: true
+    enabled: true
