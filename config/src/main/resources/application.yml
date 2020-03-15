@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: config
   profiles:
     active: composite
   cloud:
@@ -8,7 +10,7 @@ spring:
       server:
         composite:
           - type: native
-            search-locations: classpath:config
+            search-locations: classpath:configuration
         bootstrap: true
 
 server:
