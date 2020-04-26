@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: edge
+
+server:
+  port: 8123
+
+logging:
+  level:
+    com.codespacelab: DEBUG
+    org.springframework.web: DEBUG
+    com.netfilx: DEBUG
