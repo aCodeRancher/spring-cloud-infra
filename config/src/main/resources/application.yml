@@ -1,17 +1,21 @@
 spring:
   application:
     name: config
-  profiles:
-    active: composite
+  #profiles:
+    #active: composite
   cloud:
     config:
       discovery:
         enabled: true
       server:
-        composite:
-          - type: native
-            search-locations: classpath:configuration
+        #composite:
+          #- type: native
+            #search-locations: classpath:configuration
         bootstrap: true
+        git:
+           uri: https://github.com/aCodeRancher/burgersales
+           clone-on-start: true
+           search-paths : '{application}'
 
 server:
   port: 8888
