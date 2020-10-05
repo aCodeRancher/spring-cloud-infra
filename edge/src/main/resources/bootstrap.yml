@@ -2,10 +2,13 @@ spring:
   cloud:
     config:
       enabled: true
-      discovery:
-        enabled: true
-        serviceId: config
-  eureka:
+      #discovery:
+       #enabled: true
+       #serviceId: config
+
+server:
+    port : 8123
+eureka:
     client:
       serviceUrl:
         defaultZone: http://localhost:8761/eureka

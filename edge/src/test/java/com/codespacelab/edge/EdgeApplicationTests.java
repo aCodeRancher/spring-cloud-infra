@@ -1,12 +1,12 @@
 package com.codespacelab.edge;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+//import org.junit.jupiter.api.Test;
+//import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class EdgeApplicationTests {
 
-	@Test
+//	@Test
 	void contextLoads() {
 	}
 
