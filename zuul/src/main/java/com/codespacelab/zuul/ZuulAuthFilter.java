@@ -16,10 +16,11 @@ public class ZuulAuthFilter extends ZuulFilter {
         return true;
     }
 
+     //This method does not do anything related to security actually
     @Override
     public Object run() {
        RequestContext ctx = RequestContext.getCurrentContext();
-       String credentials = "admin" + ":" + "admin";
+       String credentials = "admin" + ":" + "wrongPassword";
        byte[] credentialsByte = credentials.getBytes();
        byte[] base64CredsBytes = Base64.encodeBase64(credentialsByte);
        String authorizationHeader = "Basic " + new String(base64CredsBytes);
