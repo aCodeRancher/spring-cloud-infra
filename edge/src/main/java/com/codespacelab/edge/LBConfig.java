@@ -14,15 +14,20 @@ public class LBConfig {
         return builder.routes()
                 .route( r -> r.path("/burger-api/user/**")
                         .filters(f -> f.rewritePath("/burger-api/(?<segment>.*)", "/${segment}")
-                                       .filter( headerFilter.apply(new HeaderFilter.Config())))
+                                       .filter( headerFilter.apply(new HeaderFilter.Config()))
+                                        .circuitBreaker( c->c.setName("userCB")
+                                                 .setFallbackUri("forward:/user-failover").setRouteId("user-failover")))
                         .uri("lb://USER")
                         .id("user"))
                 
                 .route( r-> r.path("/burger-api/order/**")
                         .filters(f->f.rewritePath("/burger-api/(?<segment>.*)", "/${segment}")
-                                 .filter(headerFilter.apply(new HeaderFilter.Config())))
+                                 .filter(headerFilter.apply(new HeaderFilter.Config()))
+                            )
                 .uri("lb://ORDER")
                 .id("order"))
+
+                .route(r -> r.path( "/user-failover").uri("lb://user-failover").id("user-failover"))
                 .build();
     }
 }
