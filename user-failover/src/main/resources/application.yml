@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: user-failover
+server:
+  port: 8083
+eureka:
+  client:
+    serviceUrl:
+        defaultZone: http://localhost:8761/eureka
+    registerWithEureka: true
+    fetchRegistry: true
+    enabled: true
